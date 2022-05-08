@@ -1,0 +1,148 @@
+\documentclass[a4paper,titlepage]{article}
+\usepackage{ctex}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+
+\usepackage{fancyhdr}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}%次标题宏包
+\usepackage{multirow}%multirow命令
+\usepackage{caption}
+\captionsetup[figure]{name=}
+\captionsetup[table]{name=}
+%%为图片和表格自动编号，name=后的东西即为表头
+\usepackage{blindtext}
+
+\usepackage{xcolor}
+\newcommand{\red}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\blue}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\green}[1]{\textcolor[rgb]{0.00,1.00,0.00}{#1}}
+\newcommand{\darkblue}[1]
+{\textcolor[rgb]{0.00,0.00,0.50}{#1}}
+\newcommand{\darkgreen}[1]
+{\textcolor[rgb]{0.00,0.37,0.00}{#1}}
+\newcommand{\darkred}[1]{\textcolor[rgb]{0.60,0.00,0.00}{#1}}
+\newcommand{\brown}[1]{\textcolor[rgb]{0.50,0.30,0.00}{#1}}
+\newcommand{\purple}[1]{\textcolor[rgb]{0.50,0.00,0.50}{#1}}
+%%在文档中改变字体的颜色
+
+%\special{papersize=8in,4.5in}
+%\usepackage{syntonly}
+%\syntaxonly
+
+\newcommand{\myline}{\rule[-.4pt]{5em}{.4pt}}
+%自定义空白下划线
+\begin{document}
+
+%%标题页
+\author{袁长红 \and 赛小息}
+\title{材料科学基础\\---材料科学基础笔记}
+\date{\today}
+%\CTEXoptions[today=big]
+%\CTEXoptions[today=old]
+\maketitle
+
+
+%%页眉 页脚
+\pagestyle{fancy}
+\rhead{}
+\lhead{}
+\chead{学无止境\qquad 气有浩然}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+%控制页眉页脚横线宽度
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%定义
+\renewcommand{\contentsname}{目录}%中文目录
+\def\abstractname{简述}
+\newtheorem{law}{定理}
+\newtheorem{definition}{定义}
+\newtheorem{test}{test}
+\tableofcontents
+
+
+大写罗马数字1\uppercase\expandafter{\romannumeral1}
+
+材料科学与工程学院\linebreak
+
+下面哪个不对\hfill (\quad)\\
+下面哪个不对\dotfill (\quad)\\
+下面哪个不对\hrulefill (\quad)\\
+
+{\em 文本效果}
+	\underline{文本效果}
+	\red{文本效果}
+	\colorbox{yellow}{文本效果}
+	\colorbox{yellow}{\red{文本效果么}}
+
+\newpage
+%%表格
+\centering\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{Ene}\\%列数 对齐方式 文本
+\hline
+Mene & Muh! \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|}\hline
+\multirow{2}*{Common text}%行数 长度 *表默认长度 文本
+& Column g2a \\ \cline{2-2}
+& Column g2b \\ \hline
+\end{tabular}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+\multirow{2}*{题号} & \multicolumn{5}{c|}{第一部分} &
+\multirow{2}*{第二部分} & \multirow{2}*{总分}\\\cline{2-6}
+ &一  & 二 &三 & 四&五 & &\\\hline
+得分& & & & & & &\\ \hline
+\end{tabular}
+\end{center}
+
+\newpage
+%%数学公式
+\flushleft
+\(\sum\limits_{i=1}^{n}\)\\
+$\iint \qquad \iiint \qquad \iiiint \qquad \idotsint$\\
+$$\bm{a}+\bm{b}=\bm{0}$$
+$$\underbrace{ a + \overbrace{b +\cdots + y}^{123} +z }_{26}$$
+指定括号大小
+$(\big(\Big(\bigg(\Bigg($\quad$\}\big\}\Big\}\bigg\}\Bigg\}$\\
+绝对值符号$\left\vert\dfrac{a}{b}\right\vert$\\
+幻影
+\begin{displaymath}
+{}^{12}_{\phantom{1}6}\textrm{C} \qquad
+\textrm{versus} \qquad
+{}^{12}_{6}\textrm{C}
+\end{displaymath}
+\begin{displaymath}
+\Gamma_{ij}^{\phantom{ij}k} \qquad
+\textrm{versus} \qquad
+\Gamma_{ij}^{k}
+\end{displaymath}
+\begin{equation}
+\begin{aligned}
+&a+b=c\\
+&a+b+c+d+e=f
+\end{aligned}
+\end{equation}
+\begin{subequations}
+	\begin{equation}
+	a+b=c
+	\end{equation}
+	\begin{equation}
+	a+b+c+d+e=f
+	\end{equation}
+\end{subequations}
+\end{document}

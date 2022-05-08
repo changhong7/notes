@@ -1,0 +1,137 @@
+\documentclass[titlepage]{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\begin{document}
+\author{袁长红\\201700150122}
+\title{固体物理作业}	
+\date{\today}
+\maketitle
+
+\pagestyle{fancy}
+\chead{袁长红}
+1.求由5个原子组成的一维单原子晶格的振动频率。
+
+由一维简单晶格振动的色散关系和周期性边界条件可得
+\begin{align}
+\omega=&2\sqrt{\dfrac{\beta}{m}}\left| \sin(\dfrac{qa}{2})\right|\label{f1}\\
+q=&\dfrac{2\pi l}{Na}(l\in\mathbb{Z},-\dfrac{N}{2}<l\leqslant\dfrac{N}{2}) \label{f2}
+\end{align}
+由题$ N=5,-\dfrac{5}{2}<l\leqslant\dfrac{5}{2}$ ,可知$ l=-2,-1,0,1,2 $ . 将\eqref{f2}和$ N=5 $代入\eqref{f1}中得
+\begin{equation}\label{f3}
+\omega=2\sqrt{\dfrac{\beta}{m}}\left| \sin(\dfrac{\pi l}{5})\right|
+\end{equation}
+将$ l $的可能取值依次代入\eqref{f3}中，得晶格的振动频率$ \omega_1=2\sin\dfrac{2\pi}{5}\sqrt{\dfrac{\beta}{m}}\approx1.902\sqrt{\dfrac{\beta}{m}}(l=-2,2),\omega_2=2\sin\dfrac{\pi}{5}\sqrt{\dfrac{\beta}{m}}\approx1.176\sqrt{\dfrac{\beta}{m}}(l=-1,1),\omega_3=0(l=0) $.
+
+2.晶体振动的动力学基础。
+
+
+
+3.如何理解单个原子振动和多个振动模式？
+
+单个原子的振动是多个振动模式（相互独立的简谐振动）的格波叠加的结果。（类似于量子力学中任意态可由多个相互正交的本征态线性组合得到）
+\newpage
+1. $ q=\frac{\pi}{2a} $时，在声学支格波上，质量为$ m $的轻原子保持不动；在光学支格波上，质量为$ M $的重原子保持不动。
+
+对声学支和光学支格波，相邻原子的振幅之比为
+\begin{align}
+\dfrac{A}{B}=\dfrac{2\beta\cos(qa)}{2\beta-m\omega^2}\label{f3}\\
+\dfrac{A}{B}=\dfrac{2\beta-M\omega^2}{2\beta\cos(qa)}\label{f4}
+\end{align}
+\eqref{f3}\eqref{f4}两式等价。$ q=\frac{\pi}{2a}\Rightarrow\cos(qa)=0 $，在声学支格波上$ \omega=\sqrt{\frac{2\beta}{M}} $，代入\eqref{f3}中得$ \dfrac{A}{B}=0\Rightarrow A=0 $，所以质量为$ m $的轻原子保持不动（代入\eqref{f4}中得到0/0不定式）；在光学支格波上$\omega=\sqrt{\frac{2\beta}{m}}  $，代入\eqref{f4}中得$ \dfrac{A}{B}=\infty\Rightarrow B=0 $，所以质量为$ M $的重原子保持不动（代入\eqref{f3}中得0/0不定式）。
+
+2. 一维无限长原子链，原子质量为$ m $和$ M $，且$ m<M $。靠得较近的两个原子构成一个分子。设一个分子内两原子平衡位置的距离为$ b $，恢复力系数为$ \beta_1 $，分子间两原子间的恢复力系数为$ \beta_2 $，晶格常量为$ a $(图\ref{fig:1}所示)，求色散关系。
+% TODO: \usepackage{graphicx} required
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/1}
+	\caption{示意图}
+	\label{fig:1}
+\end{figure}
+
+运动方程：
+\begin{equation}\label{f5}
+\begin{cases}
+m\dfrac{\intd^2x_{2n+1}}{\intd t^2}=-\beta_2(x_{2n+1}-x_{2n+2})-\beta_1(x_{2n+1}-x_{2n})\\
+M\dfrac{\intd^2x_{2n+2}}{\intd t^2}=-\beta_2(x_{2n+2}-x_{2n+1})-\beta_1(x_{2n+2}-x_{2n+3})
+\end{cases}
+\end{equation}
+试探解：\begin{equation}\label{f6}
+\begin{cases}
+x_{2n+1}=A\exp [i(\omega t-qr_{2n+1})]=A\exp \{i[\omega t-q(na+b)]\}\\
+x_{2n+2}=B\exp [i(\omega t-qr_{2n+2})]=B\exp \{i[\omega t-q(n+1)a]\}
+\end{cases}
+\end{equation}
+由试探解可得
+\begin{equation}\label{f9}
+\begin{cases}
+\dfrac{\intd^2x_{2n+1}}{\intd t^2}=-\omega^2x_{2n+1}\\
+x_{2n+2}=\dfrac{B}{A}\exp[iq(b-a)]x_{2n+1}\\
+x_{2n}=\dfrac{B}{A}\exp(iqb)x_{2n+1}\\
+\dfrac{\intd^2x_{2n+2}}{\intd t^2}=-\omega^2x_{2n+2}\\
+x_{2n+1}=\dfrac{A}{B}\exp[iq(a-b)]x_{2n+2}\\
+x_{2n+3}=\exp(-iqa)x_{2n+1}
+\end{cases}
+\end{equation}
+将试探解\eqref{f6}代入\eqref{f5}中利用\eqref{f9}整理可得
+\begin{equation}\label{f7}
+\begin{cases}
+[m\omega^2-(\beta_1+\beta_2)]A+\{\beta_2\exp[iq(b-a)]+\beta_1\exp(iqb)\}B=0\\
+\{\beta_2\exp[iq(a-b)]+\beta_1\exp(-iqb)\}A+[M\omega^2-(\beta_1+\beta_2)]B=0
+\end{cases}
+\end{equation}
+若$ A $、$ B $有非零解，则系数行列式必须等于0，即
+\begin{equation}\label{f8}
+\begin{vmatrix}
+m\omega^2-(\beta_1+\beta_2)& \beta_2\exp[iq(b-a)]+\beta_1\exp(iqb) \\
+\beta_2\exp[iq(a-b)]+\beta_1\exp(-iqb)& M\omega^2-(\beta_1+\beta_2)
+\end{vmatrix}=0
+\end{equation}
+行列式展开得\begin{equation}\label{f10}
+mM\omega^4-(\beta_1+\beta_2)M\omega^2-(\beta_1+\beta_2)m\omega^2+(\beta_1+\beta_2)^2-[\beta_2^2+\beta_1\beta_2\exp(iqa)+\beta_1\beta_2\exp(-iqa)+\beta_1^2]=0
+\end{equation}
+由\eqref{f10}利用欧拉公式化简得
+\begin{equation}\label{f11}
+mM\omega^4-(\beta_1+\beta_2)(m+M)\omega^2+4\beta_1\beta_2\sin^2\frac{qa}{2}=0
+\end{equation}
+\eqref{f11}是关于$ \omega^2 $的一元二次方程，其中$ \Delta=(\beta_1+\beta_2)^2(m+M)^2-16mM\beta_1\beta_2\sin^2\dfrac{qa}{2}$
+\begin{equation}\label{f12}
+\omega^2=\dfrac{(\beta_1+\beta_2)(m+M)\pm\sqrt{\Delta}}{2mM}
+\end{equation}
+\eqref{f12}中声学支格波取负号，光学支格波取正号。由\eqref{f12}知$ \omega_{A/O}-q $的周期为$ \dfrac{2\pi}{a} $，所以可将$ q $限制在$(-\dfrac{\pi}{a},\dfrac{\pi}{a}]$。根据周期性边界条件（设晶体有$ N $个原胞）有\begin{equation}\label{key}
+x_{2n+1}=x_{2n+1+2N}
+\end{equation}
+得$ \exp(iqNa)=1 $，解得$ qNa=2\pi l(l\in\mathbb{Z})\Rightarrow q=\dfrac{2\pi l}{Na}$，又$ q\in(-\dfrac{\pi}{a},\dfrac{\pi}{a}]\Rightarrow l\in(-\dfrac{N}{2},\dfrac{N}{2}] $。
+
+3.
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}cccccccc@{}}
+		\toprule
+		& 原子数/原胞 & 原胞数 & 自由度数 & 波矢数 & 格波数\footnotemark & 声学波数（支） & 光学波数（支） \\ \midrule
+		单原子链 & 1      & $N$ &    $ N $  &   $ N $  & $ N $    &     1    &     0    \\
+		双原子链 & 2      & $N$ &      $ 2N $&   $ N $  &  $ 2N $   &    1     &    1     \\
+		三维结构 & $n$    & $N$ &      $ 3nN $&   $ N $  &   $ 3nN $  &   3      &   $ 3(n-1) $      \\ \bottomrule
+	\end{tabular}
+
+\end{table}
+\footnotetext{晶体振动模式或$ (\omega,q)$数}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
