@@ -68,6 +68,19 @@
 \newtheorem{definition}{定义}
 \newtheorem{test}{test}
 \tableofcontents
+提高latex的编译速度：
+\begin{itemize}
+	\item 文档分块 使用\verb-\input-或\verb-\include-将文档分块，按需编译
+ 	\item 给graphicx宏包添加draft选项来不显示图片；
+	 若单独查看图片效果，
+	 可以给图片代码设置
+	 \verb-\includegraphics[width=\textwidth,draft=true]{fig}-
+	 来单独显示
+\end{itemize}
+
+$a_h^g, a^g, a_h$
+
+$a_h^g, a_{\vphantom{\strut}}^g, a^{\vphantom{\strut}}_h$
 
 
 大写罗马数字1\uppercase\expandafter{\romannumeral1}
